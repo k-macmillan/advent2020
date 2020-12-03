@@ -16,10 +16,9 @@ def main():
 
 def trees_hit(tree_map, right, down):
     tree_count = 0
-    for i, line in enumerate(tree_map):
-        if i % down == 0:
-            if line[(i * right // down) % 31] == '#':
-                tree_count += 1
+    for i, line in enumerate(tree_map[::down]):
+        if line[(i * right) % 31] == '#':
+            tree_count += 1
 
     if tree_map[0][0] == '#':
         tree_count -= 1
